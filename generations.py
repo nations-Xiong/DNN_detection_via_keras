@@ -13,7 +13,7 @@ def training_gen(bs, SNRdb = 20):
         input_samples = []
         input_labels = []
         for H in H_total:
-            bits = np.random.binomial(n=1, p=0.5, size=(payloadBits_per_OFDM,))
+            bits = np.random.binomial(n=1, p=0.5, size=(payloadBits_per_OFDM,)) # 128 bits -- one OFDM symbol
             signal_output, para = ofdm_simulate(bits, H, SNRdb)
             input_labels.append(bits[0:16])
             input_samples.append(signal_output)
